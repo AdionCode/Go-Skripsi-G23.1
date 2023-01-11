@@ -13,21 +13,27 @@ public class PlayerStat : MonoBehaviour
 
     [SerializeField] int totalScore;
 
-    public GameObject myText;
+    public GameObject scoreText;
+
+    public GameObject scoreFinish;
+    public GameObject finishPanel;
 
     void Start()
     {
-        
+        Time.timeScale = 1;
+        finishPanel.SetActive(false);
     }
 
     void Update()
     {
-        myText.GetComponent<TMP_Text>().text = playerScore.ToString() + " / " + totalScore;
+        scoreFinish.GetComponent<TMP_Text>().text = ((playerScore / totalScore) * 100).ToString() + "%";
+        scoreText.GetComponent<TMP_Text>().text = playerScore.ToString() + " / " + totalScore;
               
     }
 
     private void GameOver()
     {
+        finishPanel.SetActive(true);
         Time.timeScale = 0;
     }
 

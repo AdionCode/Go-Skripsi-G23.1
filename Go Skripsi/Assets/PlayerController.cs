@@ -44,8 +44,6 @@ public class PlayerController : MonoBehaviour
         {
             isGround = true;
         }
-
-        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
